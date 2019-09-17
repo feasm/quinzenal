@@ -21,7 +21,14 @@ class Nano2Tests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-//        XCTAssert(false, "Test failed")
+        XCTAssert(true)
+    }
+    
+    func testBitriseMaiorQueJenkins() {
+        XCTAssert(true)
+    }
+    
+    func testBitriseEhVida() {
         XCTAssert(true)
     }
 
