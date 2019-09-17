@@ -31,6 +31,10 @@ class Nano2Tests: XCTestCase {
     func testBitriseEhVida() {
         XCTAssert(true)
     }
+    
+    func testJenkinsEhBom() {
+        XCTAssert(false)
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
