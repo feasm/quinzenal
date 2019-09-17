@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC0266502330D17A00E644C7 /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BC02664E2330D17A00E644C7 /* HockeySDKResources.bundle */; };
+		BC0266512330D17A00E644C7 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC02664F2330D17A00E644C7 /* HockeySDK.framework */; };
 		BC31ED3420286FF100727D5F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC31ED3320286FF100727D5F /* HomeViewController.swift */; };
 		BC7EE4B5201F9DC000492F1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7EE4B4201F9DC000492F1B /* AppDelegate.swift */; };
 		BC7EE4B7201F9DC000492F1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7EE4B6201F9DC000492F1B /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC02664E2330D17A00E644C7 /* HockeySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HockeySDKResources.bundle; sourceTree = "<group>"; };
+		BC02664F2330D17A00E644C7 /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = "<group>"; };
 		BC31ED3320286FF100727D5F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BC7EE4B1201F9DC000492F1B /* Nano2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nano2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC7EE4B4201F9DC000492F1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC0266512330D17A00E644C7 /* HockeySDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC02664D2330D17A00E644C7 /* HockeySDK.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				BC02664E2330D17A00E644C7 /* HockeySDKResources.bundle */,
+				BC02664F2330D17A00E644C7 /* HockeySDK.framework */,
+			);
+			name = HockeySDK.embeddedframework;
+			path = "HockeySDK-iOS/HockeySDK.embeddedframework";
+			sourceTree = SOURCE_ROOT;
+		};
 		BC7EE4A8201F9DC000492F1B = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +114,7 @@
 		BC7EE4B3201F9DC000492F1B /* Nano2 */ = {
 			isa = PBXGroup;
 			children = (
+				BC02664D2330D17A00E644C7 /* HockeySDK.embeddedframework */,
 				BCBE26F82024C8180069D148 /* Utils */,
 				BC7EE4C82020B70700492F1B /* Controller */,
 				BC7EE4C72020B70300492F1B /* View */,
@@ -168,6 +184,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC7EE4C3201F9DC000492F1B /* Build configuration list for PBXNativeTarget "Nano2" */;
 			buildPhases = (
+				BC02664C2330D14500E644C7 /* HockeyApp Script */,
 				BC7EE4AD201F9DC000492F1B /* Sources */,
 				BC7EE4AE201F9DC000492F1B /* Frameworks */,
 				BC7EE4AF201F9DC000492F1B /* Resources */,
@@ -245,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC7EE4BF201F9DC000492F1B /* LaunchScreen.storyboard in Resources */,
+				BC0266502330D17A00E644C7 /* HockeySDKResources.bundle in Resources */,
 				BC7EE4BC201F9DC000492F1B /* Assets.xcassets in Resources */,
 				BC7EE4BA201F9DC000492F1B /* Main.storyboard in Resources */,
 			);
@@ -258,6 +276,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BC02664C2330D14500E644C7 /* HockeyApp Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "HockeyApp Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "FILE=\"${SRCROOT}/HockeySDK-iOS/BuildAgent\"\nif [ -f \"$FILE\" ]; then\n\"$FILE\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BC7EE4AD201F9DC000492F1B /* Sources */ = {
@@ -436,6 +475,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 4XWMMXB4KD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HockeySDK-iOS/HockeySDK.embeddedframework",
+				);
 				INFOPLIST_FILE = Nano2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CODE_SIGN_FLAGS = "";
@@ -454,6 +497,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 4XWMMXB4KD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HockeySDK-iOS/HockeySDK.embeddedframework",
+				);
 				INFOPLIST_FILE = Nano2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CODE_SIGN_FLAGS = "";
